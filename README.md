@@ -17,7 +17,7 @@ SEKIRO 是一个android下的API服务暴露框架，可以用在app逆向、app
 4. sekiro 不依赖xposed架构，能与一切hook框架解耦合
 
 #### .1.1.1. sekiro组织架构
-![sekiro组织架构](/img/Sekiro架构.png)
+![sekiro组织架构](/Sekiro%E6%9E%B6%E6%9E%84.png)
 
 1. sekiro包含移动端开发和服务器端开发
 2. 服务器端是用Springboot管理各种组件，在Springboot bean（InitializingBean）初始化 afterPropertiesSet完成会启动两个nio服务，分别监听5600，5601端口.
