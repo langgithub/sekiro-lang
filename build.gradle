@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group 'com.lang'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        name "aliyunmaven"
+        url "https://maven.aliyun.com/repository/public"
+    }
+    maven {
+        name "aliyunGoogle"
+        url "https://maven.aliyun.com/repository/google"
+    }
+}
+
+allprojects {
+    task hello {
+        doLast { task ->
+            println "I'm $task.project.name"
+        }
+    }
+}
+subprojects {
+    hello {
+        doLast {
+            println "- I depend on water"
+        }
+    }
+}
+
+dependencies {
+
+}
