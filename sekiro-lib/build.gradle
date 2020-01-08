@@ -24,8 +24,8 @@ hello.doLast {
 }
 
 dependencies {
-    implementation 'io.netty:netty-codec:4.1.15.Final'
-    implementation 'io.netty:netty-handler:4.1.15.Final'
+    implementation 'io.netty:netty-codec:4.1.43.Final'
+    implementation 'io.netty:netty-handler:4.1.43.Final'
     compileOnly 'org.slf4j:slf4j-api:1.7.25'
     compileOnly 'com.google.android:android:4.1.1.4'
     compileOnly 'com.android.support:support-annotations:28.0.0'
