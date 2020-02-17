@@ -54,11 +54,6 @@ public class SekiroHttpServer implements InitializingBean {
                                 .addLast(new HttpObjectAggregator(1 << 25))
                                 .addLast(new HttpRequestDispatcher());
                     }
-
-                    @Override
-                    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-                        ctx.close();
-                    }
                 });
 
 
