@@ -5,6 +5,7 @@ import com.google.common.collect.Maps;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.net.SocketAddress;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -27,6 +28,13 @@ public class ChannelRegistry {
     }
 
     private Map<String, ClientGroup> clientGroupMap = Maps.newConcurrentMap();
+
+    // 处理下限容器
+    private Map<SocketAddress, String> other = Maps.newConcurrentMap();
+
+    public Map<SocketAddress, String> getOther() {
+        return other;
+    }
 
     /**
      * 根据group查询ClientGroup，没有就创建
@@ -124,6 +132,7 @@ public class ChannelRegistry {
             natClient = new NatClient(client, group, cmdChannel);
             natClientMap.put(client, natClient);
             poolQueue.add(natClient);
+            ChannelRegistry.getInstance().getOther().put(cmdChannel.remoteAddress(),group);
         }
 
 
