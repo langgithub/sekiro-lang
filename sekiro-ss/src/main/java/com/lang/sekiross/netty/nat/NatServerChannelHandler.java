@@ -66,6 +66,8 @@ public class NatServerChannelHandler extends SimpleChannelInboundHandler<SekiroN
         heartbeatMessage.setType(SekiroNatMessage.TYPE_HEARTBEAT);
         log.info("response heartbeat message {}", ctx.channel());
         ctx.channel().writeAndFlush(heartbeatMessage);
+        // 心跳回调
+        handler(ctx);
 
 //        String clientId = ctx.channel().attr(Constants.CLIENT_KEY).get();
 //        if (StringUtils.isBlank(clientId)) {
@@ -82,6 +84,8 @@ public class NatServerChannelHandler extends SimpleChannelInboundHandler<SekiroN
             return;
         }
         ChannelRegistry.getInstance().registryClient(clientIdAndGroup, ctx.channel());
+        // 上线回调
+        handler(ctx);
     }
 
     @Override
@@ -90,12 +94,11 @@ public class NatServerChannelHandler extends SimpleChannelInboundHandler<SekiroN
         ctx.close();
     }
 
-    @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+    private void handler(ChannelHandlerContext ctx){
         Channel channel = ctx.channel();
         String group = ChannelRegistry.getInstance().getOther().get(channel.remoteAddress());
-        ChannelRegistry.getInstance().getOther().remove(channel.remoteAddress());
-        System.out.println(channel.remoteAddress()+ group + " 下线");
+//        ChannelRegistry.getInstance().getOther().remove(channel.remoteAddress());
+//        System.out.println(channel.remoteAddress()+ group + " 下线");
         // 开启线程处理
         new Thread(new Runnable() {
             @Override
@@ -105,9 +108,9 @@ public class NatServerChannelHandler extends SimpleChannelInboundHandler<SekiroN
                 try {
                     HttpResponse httpResponse = new DefaultHttpClient().execute(httpGet);//其中HttpGet是HttpUriRequst的子类
                     if (httpResponse.getStatusLine().getStatusCode()==200){
-                        log.info(group.split("_")[1]+">>>>>>下线回调成功");
+                        log.info(group.split("_")[1]+">>>>>>心跳回调成功");
                     }else {
-                        log.info(group.split("_")[1]+">>>>>>下线回调失败");
+                        log.info(group.split("_")[1]+">>>>>>心跳回调失败");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

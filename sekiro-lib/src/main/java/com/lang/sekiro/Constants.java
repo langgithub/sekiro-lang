@@ -5,7 +5,7 @@ import io.netty.util.AttributeKey;
 public interface Constants {
     int READ_IDLE_TIME = 40;
 
-    int WRITE_IDLE_TIME = 20;
+    int WRITE_IDLE_TIME = 5;
 
     /**
      * max packet is 最大允许传输10M的数据.
