@@ -5,6 +5,7 @@ import com.lang.sekiro.utils.Multimap;
 import com.lang.sekiross.netty.ChannelRegistry;
 import com.lang.sekiross.netty.NatClient;
 import com.lang.sekiross.netty.http.msg.DefaultHtmlHttpResponse;
+import com.lang.sekiross.netty.http.msg.HealthHtmlHttpResponse;
 import com.lang.sekiross.util.ReturnUtil;
 import org.apache.commons.lang3.StringUtils;
 
@@ -51,6 +52,12 @@ public class HttpRequestDispatcher extends SimpleChannelInboundHandler<FullHttpR
         }
         if (!url.startsWith("/")) {
             url = "/" + url;
+        }
+        if (StringUtils.equalsAnyIgnoreCase(url, "/health")) {
+            //404
+            Channel channel = channelHandlerContext.channel();
+            channel.writeAndFlush(HealthHtmlHttpResponse.health()).addListener(ChannelFutureListener.CLOSE);
+            return;
         }
 
         //sekiro的NIO http，只支持invoke接口，其他接口请走springBoot

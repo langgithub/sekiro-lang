@@ -67,7 +67,7 @@ public class NatServerChannelHandler extends SimpleChannelInboundHandler<SekiroN
         log.info("response heartbeat message {}", ctx.channel());
         ctx.channel().writeAndFlush(heartbeatMessage);
         // 心跳回调
-        handler(ctx);
+//        handler(ctx);
 
 //        String clientId = ctx.channel().attr(Constants.CLIENT_KEY).get();
 //        if (StringUtils.isBlank(clientId)) {
@@ -85,7 +85,7 @@ public class NatServerChannelHandler extends SimpleChannelInboundHandler<SekiroN
         }
         ChannelRegistry.getInstance().registryClient(clientIdAndGroup, ctx.channel());
         // 上线回调
-        handler(ctx);
+//        handler(ctx);
     }
 
     @Override
@@ -104,8 +104,10 @@ public class NatServerChannelHandler extends SimpleChannelInboundHandler<SekiroN
             @Override
             public void run() {
                 // /rich/open/alipayHeart?alipayNum=支付宝账号
-                HttpGet httpGet = new HttpGet("http://139.129.119.106:10000/rich/open/alipayHeart?alipayNum="+group.split("_")[1]);
+                String url="http://139.129.119.106:10000/rich/open/alipayHeart?alipayNum="+group.split("_")[1];
+                log.info("心跳准备 >>> "+url);
                 try {
+                    HttpGet httpGet = new HttpGet(url);
                     HttpResponse httpResponse = new DefaultHttpClient().execute(httpGet);//其中HttpGet是HttpUriRequst的子类
                     if (httpResponse.getStatusLine().getStatusCode()==200){
                         log.info(group.split("_")[1]+">>>>>>心跳回调成功");
