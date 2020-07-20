@@ -13,7 +13,7 @@
             return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
         }
 
-        var client = new SekiroClient("ws://172.20.17.94:5603/websocket?group=ws-group-2&clientId=" + guid());
+        var client = new SekiroClient("ws://172.20.17.94:11003/websocket?group=ws-group-2&clientId=" + guid());
 
         client.registerAction("clientTime", function (request, resolve, reject) {
             resolve("猿人学：" + new Date());
