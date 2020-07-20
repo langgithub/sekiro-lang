@@ -59,14 +59,10 @@ public class ReturnUtil {
     }
 
     public static void writeRes(Channel channel, CommonRes<?> commonRes) {
-
         byte[] bytes = JSON.toJSONString(commonRes).getBytes(StandardCharsets.UTF_8);
         DefaultFullHttpResponse httpResponse = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, Unpooled.wrappedBuffer(bytes));
-
         httpResponse.headers().set(HeaderNameValue.CONTENT_TYPE, "application/json;charset=utf8;");
-
         channel.writeAndFlush(httpResponse).addListener(ChannelFutureListener.CLOSE);
-
     }
 
 

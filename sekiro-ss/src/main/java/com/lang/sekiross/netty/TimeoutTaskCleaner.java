@@ -1,7 +1,7 @@
-package com.lang.sekiross.netty.task;
+package com.lang.sekiross.netty;
 
 
-import com.lang.sekiross.netty.task.TaskRegistry;
+import com.lang.sekiross.netty.nat.TaskRegistry;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
