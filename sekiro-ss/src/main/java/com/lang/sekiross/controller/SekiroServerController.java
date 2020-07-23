@@ -107,7 +107,7 @@ public class SekiroServerController {
 
         if (timeOut < 500) {
             //默认15s的超时时间
-            timeOut = 15000;
+            timeOut = 120000;
         }
 
         NatClient natClient;

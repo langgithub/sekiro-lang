@@ -23,7 +23,7 @@ public class TimeoutTaskCleaner {
     }
 
     private void doClean() {
-        //60s之前的任务，都给remove调
-        TaskRegistry.getInstance().cleanBefore(System.currentTimeMillis() - taskCleanDuration * 2);
+        //120s之前的任务，都给remove调
+        TaskRegistry.getInstance().cleanBefore(System.currentTimeMillis() - taskCleanDuration * 4);
     }
 }
