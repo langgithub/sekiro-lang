@@ -58,3 +58,5 @@ SekiroMessageDecoder 代替原理啊的SekiroNatMessageDecoder（更名为Sekiro
 
 #### .1.1.4. sekiro 基于xposed主动hook demo
 https://github.com/langgithub/hello
+#### .1.1.5. sekiroIOS IOS即时通讯部分已完成
+https://github.com/langgithub/SekiroIOS
