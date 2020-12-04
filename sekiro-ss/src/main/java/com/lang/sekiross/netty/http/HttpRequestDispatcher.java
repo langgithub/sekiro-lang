@@ -140,12 +140,14 @@ public class HttpRequestDispatcher extends SimpleChannelInboundHandler<FullHttpR
 
         NatClient natClient;
         if (StringUtils.isNotBlank(bindClient)) {
+            //  组不存在轮训所有组 寻找指定设备 channel；  组存在就从组中获取 设备channle
             natClient = ChannelRegistry.getInstance().queryByClient(group, bindClient);
             if (natClient == null || !natClient.getCmdChannel().isActive()) {
                 ReturnUtil.writeRes(channelHandlerContext.channel(), ReturnUtil.failed("device offline"));
                 return;
             }
         } else {
+            // 没有指定设备就轮训获取
             natClient = ChannelRegistry.getInstance().allocateOne(group);
         }
         if (natClient == null) {
