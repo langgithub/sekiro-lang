@@ -1,8 +1,6 @@
 package com.lang.sekiro.netty.client;
 
 
-import android.text.TextUtils;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
@@ -48,7 +46,7 @@ public class SekiroClient {
         clientId = clientId.replaceAll("@", "_");
         this.clientId = clientId;
         this.group = group;
-        if (TextUtils.isEmpty(group)) {
+        if (group == null || "".equals(group.trim())) {
             this.group = "default";
         }
     }
@@ -133,7 +131,7 @@ public class SekiroClient {
             isConnecting = false;
         }
         group = newGroup;
-        if (TextUtils.isEmpty(group)) {
+        if (group== null || "".equals(group.trim())) {
             this.group = "default";
         }
         connectNatServer();

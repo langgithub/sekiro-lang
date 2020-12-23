@@ -54,7 +54,7 @@ public class SekiroRequestHandlerManager {
 
         // 获取action
         String action = sekiroRequest.getString(SekiroRequestHandlerManager.action);
-        if (TextUtils.isEmpty(action)) {
+        if (action == null || "".equals(action.trim())) {
             sekiroResponse.failed("the param:{" + SekiroRequestHandlerManager.action + "} not present");
             return;
         }
@@ -87,7 +87,7 @@ public class SekiroRequestHandlerManager {
      * @param sekiroRequestHandler
      */
     public void registerHandler(String action, SekiroRequestHandler sekiroRequestHandler) {
-        if (TextUtils.isEmpty(action)) {
+        if (action == null || "".equals(action.trim())) {
             throw new IllegalArgumentException("action empty!!");
         }
         if (requestHandlerMap.containsKey(action)) {
