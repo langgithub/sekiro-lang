@@ -1,7 +1,6 @@
 package com.lang.sekiro.utils;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
 
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -107,7 +106,6 @@ public class Multimap extends LinkedHashMap<String, List<String>> implements Ite
         return parse(query, "&", false, URL_DECODER);
     }
 
-    @NonNull
     @Override
     public Iterator<NameValuePair> iterator() {
         ArrayList<NameValuePair> ret = new ArrayList<>();
