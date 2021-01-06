@@ -12,9 +12,10 @@
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${logDir}/${projectName}/${projectName}.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logDir}/${projectName}/${projectName}-%d{yyyy-MM-dd}.zip</fileNamePattern>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logDir}/${projectName}/${projectName}-%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
             <maxHistory>${maxHistory}</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
         </rollingPolicy>
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%logger:%L] - %msg%n</pattern>
@@ -28,9 +29,10 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <file>${logDir}/${projectName}/${projectName}-error.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logDir}/${projectName}/${projectName}-error-%d{yyyy-MM-dd}.zip</fileNamePattern>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logDir}/${projectName}/${projectName}-error-%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
             <maxHistory>${errorMaxHistory}</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
         </rollingPolicy>
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%logger:%L] - %msg%n</pattern>
