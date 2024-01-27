@@ -1,0 +1,16 @@
+2022-02-10 16:07:49.568 [main] INFO  [com.lang.sekiross.SekiroServerApplication:55] - Starting SekiroServerApplication on lang with PID 70977 (/Users/yuanlang/Work/java/project/sekiro-lang/sekiro-ss/build/classes/java/main started by yuanlang in /Users/yuanlang/Work/java/project/sekiro-lang/sekiro-ss)
+2022-02-10 16:07:49.572 [main] INFO  [com.lang.sekiross.SekiroServerApplication:651] - No active profile set, falling back to default profiles: default
+2022-02-10 16:07:50.332 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer:92] - Tomcat initialized with port(s): 11002 (http)
+2022-02-10 16:07:50.340 [main] INFO  [org.apache.coyote.http11.Http11NioProtocol:173] - Initializing ProtocolHandler ["http-nio-11002"]
+2022-02-10 16:07:50.341 [main] INFO  [org.apache.catalina.core.StandardService:173] - Starting service [Tomcat]
+2022-02-10 16:07:50.341 [main] INFO  [org.apache.catalina.core.StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2022-02-10 16:07:50.398 [main] INFO  [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] - Initializing Spring embedded WebApplicationContext
+2022-02-10 16:07:50.398 [main] INFO  [org.springframework.web.context.ContextLoader:284] - Root WebApplicationContext: initialization completed in 788 ms
+2022-02-10 16:07:50.472 [main] INFO  [com.lang.sekiross.netty.http.SekiroHttpServer:63] - start netty http server,port:11001
+2022-02-10 16:07:50.535 [main] INFO  [com.lang.sekiross.netty.nat.SekiroNatServer:71] - start netty nat server,port:11000
+2022-02-10 16:07:50.539 [main] INFO  [com.lang.sekiross.netty.websocket.SekiroWebSocketServer:65] - start WebSocket server,port:11003
+2022-02-10 16:07:50.670 [main] INFO  [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:171] - Initializing ExecutorService 'applicationTaskExecutor'
+2022-02-10 16:07:50.803 [main] INFO  [org.apache.coyote.http11.Http11NioProtocol:173] - Starting ProtocolHandler ["http-nio-11002"]
+2022-02-10 16:07:50.827 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer:204] - Tomcat started on port(s): 11002 (http) with context path ''
+2022-02-10 16:07:50.831 [main] INFO  [com.lang.sekiross.SekiroServerApplication:61] - Started SekiroServerApplication in 1.579 seconds (JVM running for 2.089)
+2022-02-10 16:10:31.881 [SpringContextShutdownHook] INFO  [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:208] - Shutting down ExecutorService 'applicationTaskExecutor'
