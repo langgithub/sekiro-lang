@@ -3,7 +3,7 @@ package com.lang.sekiro;
 import io.netty.util.AttributeKey;
 
 public interface Constants {
-    int READ_IDLE_TIME = 40;
+    int READ_IDLE_TIME = 60*5;
 
     int WRITE_IDLE_TIME = 5;
 
